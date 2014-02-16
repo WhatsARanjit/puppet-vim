@@ -1,0 +1,28 @@
+syntax on
+colorscheme xoria256
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smartindent
+set number
+autocmd BufWritePost *.pp !puppet parser validate <afile>
+<% if @puppet_lint -%>
+autocmd BufWritePost *.pp !<%= @puppet_lint %> --with-context --error-level error <afile> 2> /dev/null
+<% end -%>
+autocmd BufWritePost *.rb !ruby -c <afile>
+autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
+autocmd BufWritePost *.pl !perl -c <afile>
+autocmd BufWritePost *.sh !bash -n <afile>
+
+" Vundle stuff
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'godlygeek/tabular'
+
+" Tabularize
+map ,a :Tabularize /=<CR>
+map ,s :Tabularize /=><CR>
