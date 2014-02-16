@@ -4,7 +4,7 @@ define vim::vim_profile (
   $puppet_lint = '/opt/puppet/bin/puppet-lint'
 ){
   File {
-    ensure  => present,
+    ensure  => file,
     owner   => $vim_user,
     group   => $vim_group,
     require => Package['vim-common'],
