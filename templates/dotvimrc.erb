@@ -14,6 +14,7 @@ autocmd BufWritePost *.rb !ruby -c <afile>
 autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
 autocmd BufWritePost *.pl !perl -c <afile>
 autocmd BufWritePost *.sh !bash -n <afile>
+autocmd BufWritePost *.yaml !ruby -ryaml -e "YAML.load_file '<afile>'"
 
 " Vundle stuff
 set nocompatible
