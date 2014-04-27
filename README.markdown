@@ -24,7 +24,7 @@ The user for which you want to install custom vim plugins and bundles. Default: 
 The group which should own the files laid down by the module in the user's home directory. Default: `$name`
 
 * `puppet_lint`<br />
-The path to puppet-lint for auto-style checking.  If puppet-lint is not installed, set to false. Default: `/opt/puppet/bin/puppet-lint`
+The path to puppet-lint for auto-style checking.  If you don't want puppet-lint installed, set to false. If your path is non-standard, set it here.  Default: `/usr/bin/puppet-lint`
 
 ## Example Usage
 
@@ -50,7 +50,7 @@ Install vim_profile for user foo with custom puppet-lint path:
 
 ```puppet
 vim::vim_profile { 'foo':
-  puppet_lint => '/bin/puppet-lint',
+  puppet_lint => '/sbin/puppet-lint',
 }
 ```
 
