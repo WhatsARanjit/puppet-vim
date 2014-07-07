@@ -1,4 +1,4 @@
-name    'WhatsARanjit/puppet-vim'
+name    'WhatsARanjit/vim'
 version '0.1.2'
 source 'https://github.com/WhatsARanjit/puppet-vim'
 author 'Ranjit Viswakumar'
