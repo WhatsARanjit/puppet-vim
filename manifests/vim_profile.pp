@@ -1,6 +1,6 @@
 define vim::vim_profile (
-  $vim_user  = "$name",
-  $vim_group = "$name",
+  $vim_user  = $name,
+  $vim_group = $name,
   $puppet_lint = '/usr/bin/puppet-lint'
 ){
   File {
