@@ -1,8 +1,17 @@
 define vim::vim_profile (
-  $vim_user  = $name,
-  $vim_group = $name,
-  $puppet_lint = '/usr/bin/puppet-lint'
+  $vim_user         = $name,
+  $vim_group        = $name,
+  $puppet_lint_path = undef,
 ){
+  if $puppet_lint_path {
+    $puppet_lint = $puppet_lint_path
+  } else {
+    if $::is_pe {
+      $puppet_lint = '/opt/puppet/bin/puppet-lint'
+    } else {
+      $puppet_lint = '/usr/bin/puppet-lint'
+    }
+  }
   File {
     ensure  => file,
     owner   => $vim_user,
