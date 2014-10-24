@@ -1,15 +1,22 @@
 define vim::vim_profile (
-  $vim_user         = $name,
-  $vim_group        = $name,
-  $puppet_lint_path = undef,
+  $vim_user    = $name,
+  $vim_group   = $name,
+  $puppet_lint = true,
+  $color       = 'xoria256',
 ){
-  if $puppet_lint_path {
-    $puppet_lint = $puppet_lint_path
-  } else {
-    if $::is_pe {
-      $puppet_lint = '/opt/puppet/bin/puppet-lint'
-    } else {
-      $puppet_lint = '/usr/bin/puppet-lint'
+  case $puppet_lint {
+    true: {
+      if $::is_pe {
+        $puppet_lint_path = '/opt/puppet/bin/puppet-lint'
+      } else {
+        $puppet_lint_path = '/usr/bin/puppet-lint'
+      }
+    }
+    false: {
+      $puppet_lint_path = false
+    }
+    default: {
+      $puppet_lint_path = $puppet_lint
     }
   }
   File {

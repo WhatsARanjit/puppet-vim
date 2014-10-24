@@ -1,14 +1,16 @@
 syntax on
-colorscheme xoria256
+colorscheme <%= @color %>
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
 set number
+
+" Auto syntax checking
 autocmd BufWritePost *.pp !puppet parser validate <afile>
 <% if @puppet_lint -%>
-autocmd BufWritePost *.pp !<%= @puppet_lint %> --with-context --error-level error <afile> 2> /dev/null
+autocmd BufWritePost *.pp !<%= @puppet_lint_path %> --with-context --error-level error <afile> 2> /dev/null
 <% end -%>
 autocmd BufWritePost *.rb !ruby -c <afile>
 autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
@@ -33,3 +35,11 @@ map ,q 0/=>\s*./e<CR>ct,''<Esc>P:nohlsearch<CR>
 map ,Q 0/=>\s*./e<CR>di'"_x"_XP:nohlsearch<CR>
 map ,w 0/=>\s*./e<CR>ct,""<Esc>P:nohlsearch<CR>
 map ,W 0/=>\s*./e<CR>di""_x"_XP:nohlsearch<CR>
+
+" Setting syntax
+au BufReadPost *.pp set syntax=puppet
+au BufReadPost *.erb set syntax=erb
+au BufReadPost *.yaml set syntax=yaml
+au BufReadPost *.rb set syntax=ruby
+au BufReadPost *.py set syntax=python
+au BufReadPost *.sh set syntax=sh
