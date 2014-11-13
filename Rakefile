@@ -1,5 +1,6 @@
 require 'rake'
 require 'rspec/core/rake_task'
+require 'puppet_blacksmith/rake_tasks'
 
 desc "Run all RSpec code examples"
 RSpec::Core::RakeTask.new(:rspec) do |t|
