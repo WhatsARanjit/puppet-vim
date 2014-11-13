@@ -1,5 +1,5 @@
 name    'WhatsARanjit/vim'
-version '0.2.0'
+version '0.2.1'
 source 'https://github.com/WhatsARanjit/puppet-vim'
 author 'Ranjit Viswakumar'
 license 'Apache License, Version 2.0'
