@@ -15,22 +15,29 @@
   ],
   "operatingsystem_support": [
     {
-    "operatingsystem":"RedHat",
-    "operatingsystemrelease":[ "5.0", "6.0" ]
+      "operatingsystem": "RedHat"
     },
     {
-    "operatingsystem": "Ubuntu",
-    "operatingsystemrelease": [
-      "12.04",
-      "10.04"
-      ]
+      "operatingsystem": "CentOS"
     },
-    "operatingsystem": "Debian",
-    "operatingsystem": "Darwin",
-    "operatingsystemrelease": [
-      "13.4.0"
-      ]
+    {
+      "operatingsystem": "OracleLinux"
     },
-  ]
+    {
+      "operatingsystem": "Scientific"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    },
+    {
+      "operatingsystem": "Gentoo"
+    },
+    {
+      "operatingsystem": "FreeBSD"
+    }
+  ],
+  "tags": ["Debian", "Ubuntu", "Gentoo", "RedHat", "vim", "editor", "FreeBSD", "CentOS"]
 }
-
