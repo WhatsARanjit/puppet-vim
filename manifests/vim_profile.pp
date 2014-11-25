@@ -3,6 +3,7 @@ define vim::vim_profile (
   $vim_group   = $name,
   $puppet_lint = true,
   $color       = 'xoria256',
+  $home        = 'UNSET',
 ){
   case $puppet_lint {
     true: {
@@ -25,14 +26,19 @@ define vim::vim_profile (
     group   => $vim_group,
     require => Package['vim-common'],
   }
-  $home = $vim_user ? {
-    'root'  => '/root',
-    default => "/home/${name}",
+  case $home {
+    'UNSET': {
+      $home_prefix = $::osfamily ? {
+        'root'   => '/root',
+        'Darwin' => '/Users',
+        default  => "/home/${name}",
+      }
+    }
   }
-  file { "${home}/.vimrc":
+  file { "${home_prefix}/.vimrc":
     content => template("${module_name}/dotvimrc.erb"),
   }
-  file { "${home}/.vim":
+  file { "${home_prefix}/.vim":
     ensure  => directory,
     recurse => remote,
     source  => "puppet:///modules/${module_name}/dotvim",
