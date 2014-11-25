@@ -22,6 +22,7 @@ class vim::params {
         },
       }
     }
+    default: { $vim_package = {} }
   }
 
   if $::is_pe {

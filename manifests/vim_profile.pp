@@ -26,7 +26,6 @@ define vim::vim_profile (
     ensure  => file,
     owner   => $vim_user,
     group   => $vim_group,
-    require => Package['vim-common'],
   }
 
   if $home {
