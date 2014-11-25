@@ -13,12 +13,11 @@ class vim::params {
     }
     'debian': {
       $vim_package = {
-        'vim-common' => {
-          'ensure'   => 'purged',
+        'vim' => {
+          'ensure' => 'installed',
         },
-        'vim-enhanced' => {
-          'ensure'     => 'installed',
-          'require'    => 'Package["vim-common"]',
+        'vim-common' => {
+          'ensure'   => 'installed',
         },
       }
     }
