@@ -1,0 +1,36 @@
+{
+  "name": "WhatsARanjit/vim",
+  "version": "0.2.2",
+  "author": "WhatsARanjit",
+  "summary": "Managed vim with Puppet",
+  "license": "Apache 2.0",
+  "source": "https://github.com/WhatsARanjit/puppet-vim",
+  "project_page": "https://github.com/WhatsARanjit/puppet-vim",
+  "issues_url": "https://github.com/WhatsARanjit/puppet-vim/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5.0", "6.0" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [
+      "12.04",
+      "10.04"
+      ]
+    },
+    "operatingsystem": "Debian",
+    "operatingsystem": "Darwin",
+    "operatingsystemrelease": [
+      "13.4.0"
+      ]
+    },
+  ]
+}
+
