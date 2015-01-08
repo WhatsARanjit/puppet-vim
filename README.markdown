@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/WhatsARanjit/puppet-vim.svg)](https://travis-ci.org/WhatsARanjit/puppet-vim)
+
 # Vim Module
 
 ## Overview
