@@ -14,10 +14,8 @@ end
 
 gem 'rake',                   :require => false
 gem 'puppetlabs_spec_helper', :require => false
-gem 'puppet-lint',            :require => false
 gem 'puppet-syntax',          :require => false
 gem 'rspec',                   '<3.0.0'
 gem 'rspec-expectations',      '<3.0.0'
 gem 'rspec-puppet',           :require => false
 gem 'rspec-core', '~> 2.0',   :require => false
-gem 'puppet-blacksmith',      :require => false
