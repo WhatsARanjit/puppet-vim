@@ -17,6 +17,7 @@ autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
 autocmd BufWritePost *.pl !perl -c <afile>
 autocmd BufWritePost *.sh !bash -n <afile>
 autocmd BufWritePost *.yaml !ruby -ryaml -e "YAML.load_file '<afile>'"
+autocmd BufWritePost *.json !ruby -rjson -e "puts 'Syntax OK' if JSON.parse(File.read('<afile>'))"
 
 " Vundle stuff
 set nocompatible
@@ -40,6 +41,7 @@ map ,W 0/=>\s*./e<CR>di""_x"_XP:nohlsearch<CR>
 au BufReadPost *.pp set syntax=puppet
 au BufReadPost *.erb set syntax=erb
 au BufReadPost *.yaml set syntax=yaml
+au BufReadPost *.json set syntax=json
 au BufReadPost *.rb set syntax=ruby
 au BufReadPost *.py set syntax=python
 au BufReadPost *.sh set syntax=sh
