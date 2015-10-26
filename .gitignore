@@ -1,1 +1,7 @@
-pkg/*
+pkg/
+*.lock
+vendor/
+spec/fixtures/
+.vagrant/
+.bundle/
+.*.swp
