@@ -14,7 +14,9 @@ autocmd BufWritePost *.pp !<%= @puppet_lint_path %> --with-context --error-level
 <% end -%>
 autocmd BufWritePost *.rb !ruby -c <afile>
 autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
+autocmd BufWritePost *.epp !puppet epp validate <afile>
 autocmd BufWritePost *.pl !perl -c <afile>
+autocmd BufWritePost *.py !python -m py_compile <afile>
 autocmd BufWritePost *.sh !bash -n <afile>
 autocmd BufWritePost *.yaml !ruby -ryaml -e "YAML.load_file '<afile>'"
 autocmd BufWritePost *.json !ruby -rjson -e "puts 'Syntax OK' if JSON.parse(File.read('<afile>'))"
@@ -40,6 +42,7 @@ map ,W 0/=>\s*./e<CR>di""_x"_XP:nohlsearch<CR>
 " Setting syntax
 au BufReadPost *.pp set syntax=puppet
 au BufReadPost *.erb set syntax=erb
+au BufReadPost *.epp set syntax=erb
 au BufReadPost *.yaml set syntax=yaml
 au BufReadPost *.json set syntax=json
 au BufReadPost *.rb set syntax=ruby
