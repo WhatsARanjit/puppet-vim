@@ -1,6 +1,6 @@
 {
   "name": "WhatsARanjit-vim",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "WhatsARanjit",
   "summary": "Managed vim with Puppet",
   "license": "Apache 2.0",
