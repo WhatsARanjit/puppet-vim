@@ -77,9 +77,9 @@ vim::vim_profile { 'foo':
 
 ## Custom key mappings
 
-`,a`  Line up stanza on `=` signs
-`,s`  Line up stanza on `=>` signs
-`,q`  Single quote attribute value: `attribute => 'value',`
-`,q`  Remove single quotes from attribute value: `attribute => value,`
-`,w`  Double quote attribute value: `attribute => "value",`
-`,W`  Remove double quotes from attribute value: `attribute => value,`
+* `,a`  Line up stanza on `=` signs
+* `,s`  Line up stanza on `=>` signs
+* `,q`  Single quote attribute value: `attribute => 'value',`
+* `,q`  Remove single quotes from attribute value: `attribute => value,`
+* `,w`  Double quote attribute value: `attribute => "value",`
+* `,W`  Remove double quotes from attribute value: `attribute => value,`
