@@ -1,6 +1,6 @@
 {
   "name": "WhatsARanjit-vim",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "WhatsARanjit",
   "summary": "Managed vim with Puppet",
   "license": "Apache 2.0",
@@ -39,5 +39,7 @@
       "operatingsystem": "FreeBSD"
     }
   ],
-  "tags": ["Debian", "Ubuntu", "Gentoo", "RedHat", "vim", "editor", "FreeBSD", "CentOS"]
+  "tags": [
+    "vim"
+  ]
 }

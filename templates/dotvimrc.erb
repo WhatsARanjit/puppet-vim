@@ -19,7 +19,7 @@ autocmd BufWritePost *.pl !perl -c <afile>
 autocmd BufWritePost *.py !python -m py_compile <afile>
 autocmd BufWritePost *.sh !bash -n <afile>
 autocmd BufWritePost *.yaml !ruby -ryaml -e "YAML.load_file '<afile>'"
-autocmd BufWritePost *.json !ruby -rjson -e "puts 'Syntax OK' if JSON.parse(File.read('<afile>'))"
+autocmd BufWritePost *.json !ruby -rjson -e "JSON.parse(File.read('<afile>'))"
 
 " Vundle stuff
 set nocompatible
