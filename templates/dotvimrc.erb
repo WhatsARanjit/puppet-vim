@@ -30,8 +30,9 @@ Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 
 " Tabularize
-map ,a :Tabularize /=<CR>
+map ,a :Tabularize /^[^=]*\zs=<CR>
 map ,s :Tabularize /=><CR>
+map ,d :Tabularize /^[^ ]*\zs /l0<CR>
 
 " Quote and unquote
 map ,q 0/=>\s*./e<CR>ct,''<Esc>P:nohlsearch<CR>
