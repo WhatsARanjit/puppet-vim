@@ -6,6 +6,7 @@ describe 'vim', :type => :class do
     {
       :kernel   => 'Linux',
       :osfamily => 'Redhat',
+      :is_pe    => false,
     }
     end
     it { should contain_class('vim') }
