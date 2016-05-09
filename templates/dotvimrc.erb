@@ -19,7 +19,7 @@ autocmd BufWritePost *.pl !perl -c <afile>
 autocmd BufWritePost *.py !python -m py_compile <afile>
 autocmd BufWritePost *.sh !bash -n <afile>
 autocmd BufWritePost *.yaml !ruby -ryaml -e "YAML.load_file '<afile>'"
-autocmd BufWritePost *.json !ruby -rjson -e "puts 'Syntax OK' if JSON.parse(File.read('<afile>'))"
+autocmd BufWritePost *.json !ruby -rjson -e "JSON.parse(File.read('<afile>'))"
 
 " Vundle stuff
 set nocompatible
@@ -30,8 +30,9 @@ Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 
 " Tabularize
-map ,a :Tabularize /=<CR>
+map ,a :Tabularize /^[^=]*\zs=<CR>
 map ,s :Tabularize /=><CR>
+map ,d :Tabularize /^[^ ]*\zs /l0<CR>
 
 " Quote and unquote
 map ,q 0/=>\s*./e<CR>ct,''<Esc>P:nohlsearch<CR>
