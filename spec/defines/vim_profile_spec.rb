@@ -7,6 +7,15 @@ describe 'vim::vim_profile', :type => :define do
   let :title do
     'ranjit'
   end
+  let :facts do
+  {
+    :kernel => 'Linux',
+    :is_pe  => false,
+    :os => {
+      :family => 'Redhat',
+    },
+  }
+  end
   describe "laying custom vim files" do
     context "with default params" do
       it { should contain_file("/home/ranjit/.vimrc").with(

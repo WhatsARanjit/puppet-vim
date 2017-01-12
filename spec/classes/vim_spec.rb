@@ -4,9 +4,11 @@ describe 'vim', :type => :class do
   context "on a Redhat system" do
     let :facts do
     {
-      :kernel   => 'Linux',
-      :osfamily => 'Redhat',
-      :is_pe    => false,
+      :kernel => 'Linux',
+      :is_pe  => false,
+      :os => {
+        :family => 'Redhat',
+      },
     }
     end
     it { should contain_class('vim') }
@@ -17,8 +19,10 @@ describe 'vim', :type => :class do
   context "on a Debian system" do
     let :facts do
     {
-      :kernel   => 'Linux',
-      :osfamily => 'Debian',
+      :kernel => 'Linux',
+      :os => {
+        :family => 'Debian',
+      },
     }
     end
     it { should contain_class('vim') }

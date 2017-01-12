@@ -1,7 +1,7 @@
 class vim (
-  $vim_package = $::vim::params::vim_package,
-  $gem_prov    = $::vim::params::gem_prov,
-) inherits vim::params {
+  Hash $vim_package,
+  String $gem_prov,
+) {
 
   create_resources( 'package', $vim_package )
 
