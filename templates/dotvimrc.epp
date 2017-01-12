@@ -1,5 +1,9 @@
+<%- | $color,
+      $puppet_lint,
+      $puppet_lint_path,
+| -%>
 syntax on
-colorscheme <%= @color %>
+colorscheme <%= $color %>
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -9,10 +13,14 @@ set number
 
 " Auto syntax checking
 autocmd BufWritePost *.pp !puppet parser validate <afile>
-<% if @puppet_lint -%>
-autocmd BufWritePost *.pp !<%= @puppet_lint_path %> --with-context --error-level error <afile> 2> /dev/null
-<% end -%>
+<% if $puppet_lint { -%>
+autocmd BufWritePost *.pp !<%= $puppet_lint_path %> --with-context --error-level error <afile> 2> /dev/null
+<% } -%>
 autocmd BufWritePost *.rb !ruby -c <afile>
+autocmd BufWritePost Gemfile !ruby -c <afile>
+autocmd BufWritePost Rakefile !ruby -c <afile>
+autocmd BufWritePost Puppetfile !ruby -c <afile>
+autocmd BufWritePost Vagrantfile !ruby -c <afile>
 autocmd BufWritePost *.erb !erb -P -x -T '-' <afile> | ruby -c
 autocmd BufWritePost *.epp !puppet epp validate <afile>
 autocmd BufWritePost *.pl !perl -c <afile>
@@ -43,9 +51,14 @@ map ,W 0/=>\s*./e<CR>di""_x"_XP:nohlsearch<CR>
 " Setting syntax
 au BufReadPost *.pp set syntax=puppet
 au BufReadPost *.erb set syntax=erb
-au BufReadPost *.epp set syntax=erb
+au BufReadPost *.epp set syntax=puppet
 au BufReadPost *.yaml set syntax=yaml
 au BufReadPost *.json set syntax=json
 au BufReadPost *.rb set syntax=ruby
+au BufReadPost Rakefile set syntax=ruby
+au BufReadPost Gemfile set syntax=ruby
+au BufReadPost Puppetfile set syntax=ruby
+au BufReadPost Vagrantfile set syntax=ruby
+au BufReadPost Puppetfile set syntax=ruby
 au BufReadPost *.py set syntax=python
 au BufReadPost *.sh set syntax=sh

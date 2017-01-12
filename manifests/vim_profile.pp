@@ -1,9 +1,9 @@
 define vim::vim_profile (
-  $vim_user    = $name,
-  $vim_group   = $name,
-  $puppet_lint = true,
-  $color       = 'xoria256',
-  $home        = false,
+  String $vim_user                                           = $name,
+  String $vim_group                                          = $name,
+  Variant[Stdlib::Absolutepath, Boolean, Undef] $puppet_lint = true,
+  String $color                                              = 'xoria256',
+  Boolean $home                                              = false,
 ){
 
   case $puppet_lint {
@@ -32,12 +32,12 @@ define vim::vim_profile (
     $home_prefix = $home
   } else {
     if $name == 'root' {
-      $home_prefix = $::osfamily ? {
+      $home_prefix = $facts['os']['family'] ? {
         'Darwin' => '/var/root',
         default  => '/root',
       }
     } else {
-      $home_prefix = $::osfamily ? {
+      $home_prefix = $facts['os']['family'] ? {
         'Darwin' => "/Users/${name}",
         default  => "/home/${name}",
       }
@@ -45,7 +45,11 @@ define vim::vim_profile (
   }
 
   file { "${home_prefix}/.vimrc":
-    content => template("${module_name}/dotvimrc.erb"),
+    content => epp("${module_name}/dotvimrc.epp", {
+      'color'            => $color,
+      'puppet_lint'      => $puppet_lint,
+      'puppet_lint_path' => $puppet_lint_path,
+    }),
   }
 
   file { "${home_prefix}/.vim":
