@@ -1,6 +1,6 @@
-<%- | $color,
-      $puppet_lint,
-      $puppet_lint_path,
+<%- | String $color,
+      Variant[Stdlib::Absolutepath, Boolean] $puppet_lint,
+      Variant[Stdlib::Absolutepath, Boolean, Undef] $puppet_lint_path,
 | -%>
 syntax on
 colorscheme <%= $color %>

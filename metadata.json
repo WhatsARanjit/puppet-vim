@@ -7,7 +7,6 @@
   "source": "https://github.com/WhatsARanjit/puppet-vim",
   "project_page": "https://github.com/WhatsARanjit/puppet-vim",
   "issues_url": "https://github.com/WhatsARanjit/puppet-vim/issues",
-  "data_provider": "hiera",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",

@@ -8,9 +8,13 @@ define vim::vim_profile (
 
   case $puppet_lint {
     true: {
-      if $::is_pe {
+      if $facts['pe_build'] {
+        $puppet_lint_path = '/opt/puppetlabs/puppet/bin/puppet-lint'
+      }
+      elsif $facts['is_pe'] {
         $puppet_lint_path = '/opt/puppet/bin/puppet-lint'
-      } else {
+      }
+      else {
         $puppet_lint_path = '/usr/bin/puppet-lint'
       }
     }
